@@ -3,8 +3,9 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
+        Tabuleiro tab = new Tabuleiro();
 
-        System.out.println("Welcome to the tic-tac-toe game :)");
+        System.out.println(" - Welcome to the tic-tac-toe game :) - ");
         System.out.println();
 
         System.out.print("Player 1 X or O ? -> ");
@@ -21,7 +22,16 @@ public class App {
         }else{
             p2 = 'X';
         }
-        System.out.println("player 1: " + p1 + " - player 2: " + p2);                
+        System.out.println();
+        
+        System.out.println("Player 1: " + p1 + "\nPlayer 2: " + p2);
+        System.out.println();
+        
+        System.out.println("Play the game: ");
+        System.out.println();
+        tab.newBoard();
+        tab.showBoard();   
+
         sc.close();
     }
 }
