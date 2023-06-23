@@ -28,9 +28,13 @@ public class App {
         System.out.println();
         
         System.out.println("Play the game: ");
+        System.out.println("Player 1 (" + p1 + "): Select the number where you want to play." );
         System.out.println();
         tab.newBoard();
-        tab.showBoard();   
+        tab.showBoard();
+        System.out.print("Insert: ");
+        int select = sc.nextInt();
+
 
         sc.close();
     }
