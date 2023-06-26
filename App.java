@@ -33,8 +33,8 @@ public class App {
         tab.newBoard();
         tab.showBoard();
         System.out.print("Insert: ");
-        int select = sc.nextInt();
-
+        char insert = sc.next().charAt(0);
+        tab.insertMove(insert, p1);
 
         sc.close();
     }
