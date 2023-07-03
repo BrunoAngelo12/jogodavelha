@@ -1,3 +1,7 @@
+import java.util.Scanner;
+
+import javax.sound.sampled.SourceDataLine;
+
 public class Tabuleiro {
     public Character[][] board = new Character[3][3];
 
@@ -32,7 +36,16 @@ public class Tabuleiro {
     public void insertMove(char insert, char player){
         switch (insert){
             case '1':
-                this.board[0][0] = player;
+                /*do{//CONTINUAR COM A LÓGICA DE CASA OCUPADA
+                    if(this.board[0][0] == 'X' || this.board == 'O'){
+                    System.out.println("Invalid move, select again: ");
+                    showBoard();
+                    System.out.print("Insert: ");
+                    char insert = sc.nextLine().charAt(0);
+                    }
+                }*/                
+                   
+            this.board[0][0] = player;
                 break;
             case '2':
                 this.board[0][1] = player;
@@ -62,8 +75,29 @@ public class Tabuleiro {
                 System.out.println("Jogada inválida");
                 break;                             
         }
-        System.out.println();
-        showBoard();   
+        System.out.println();   
+    }
+
+    public void runGame(char p1, char p2){
+        for(int i = 4; i <= 99; i++){
+            Scanner sc = new Scanner(System.in);
+            if (i % 2 == 0){
+                System.out.println("Player 1 (" + p1 + "): Select the number where you want to play: ");
+                System.out.println();
+                showBoard();
+                System.out.print("Insert: ");
+                char insert = sc.nextLine().charAt(0);
+                insertMove(insert, p1);
+
+            }else{
+                System.out.println("Player 2 (" + p2 + "): Select the number where you want to play: ");
+                System.out.println();
+                showBoard();
+                System.out.print("Insert: ");
+                char insert = sc.nextLine().charAt(0);
+                insertMove(insert, p2);
+            }
+        }
     }
 
 }
