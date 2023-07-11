@@ -82,6 +82,14 @@ public class Tabuleiro {
                 System.out.print("Insert: ");
                 char insert = sc2.next().charAt(0);
                 insertMove(insert, p1);
+                boolean test = verification(insert, p1);
+                if(test == true){
+                    continue;
+                }else{
+                    System.out.println("invalid move, try again");
+                    i--;
+                    System.out.println();
+                }
 
             }else{
                 System.out.println("Player 2 (" + p2 + "): Select the number where you want to play: ");
@@ -90,9 +98,34 @@ public class Tabuleiro {
                 System.out.print("Insert: ");
                 char insert = sc2.next().charAt(0);
                 insertMove(insert, p2);
+                boolean test = verification(insert, p2);
+                if(test == true){
+                    continue;
+                }else{
+                    System.out.println("invalid move, try again");
+                    i--;
+                    System.out.println();
+                }
             }
         }
         sc2.close();
+    }
+
+    public boolean verification(char insert, char player){
+        boolean test = false;
+        switch (insert){
+            case '1':
+                if (this.board[0][0] == player){
+                    test = true;
+                    return test;
+                }else{
+                    test = false;
+                    return test;
+                }
+            default:
+                test = false;
+                return test;    
+        }
     }
 
 }
