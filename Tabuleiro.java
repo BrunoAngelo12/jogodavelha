@@ -35,17 +35,11 @@ public class Tabuleiro {
 
     public void insertMove(char insert, char player){
         switch (insert){
-            case '1':
-                /*do{//CONTINUAR COM A LÓGICA DE CASA OCUPADA
-                    if(this.board[0][0] == 'X' || this.board == 'O'){
-                    System.out.println("Invalid move, select again: ");
-                    showBoard();
-                    System.out.print("Insert: ");
-                    char insert = sc.nextLine().charAt(0);
-                    }
-                }*/                
-                   
-            this.board[0][0] = player;
+            case '1':                               
+                if(this.board[0][0] == '1'){
+                    this.board[0][0] = player;
+                    break;
+                }
                 break;
             case '2':
                 this.board[0][1] = player;
@@ -54,7 +48,7 @@ public class Tabuleiro {
                 this.board[0][2] = player;
                 break;
             case '4':
-                this.board[1][0] = player;
+                this.board[1][0] = player; 
                 break;
             case '5':
                 this.board[1][1] = player;
@@ -79,14 +73,14 @@ public class Tabuleiro {
     }
 
     public void runGame(char p1, char p2){
-        for(int i = 4; i <= 99; i++){
-            Scanner sc = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
+        for(int i = 6; i <= 99; i++){
             if (i % 2 == 0){
                 System.out.println("Player 1 (" + p1 + "): Select the number where you want to play: ");
                 System.out.println();
                 showBoard();
                 System.out.print("Insert: ");
-                char insert = sc.nextLine().charAt(0);
+                char insert = sc2.next().charAt(0);
                 insertMove(insert, p1);
 
             }else{
@@ -94,10 +88,11 @@ public class Tabuleiro {
                 System.out.println();
                 showBoard();
                 System.out.print("Insert: ");
-                char insert = sc.nextLine().charAt(0);
+                char insert = sc2.next().charAt(0);
                 insertMove(insert, p2);
             }
         }
+        sc2.close();
     }
 
 }
