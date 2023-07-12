@@ -42,28 +42,52 @@ public class Tabuleiro {
                 }
                 break;
             case '2':
-                this.board[0][1] = player;
+                if(this.board[0][1] == '2'){
+                    this.board[0][1] = player;
+                    break;
+                }
                 break;
             case '3':
-                this.board[0][2] = player;
+                if(this.board[0][2] == '3'){
+                    this.board[0][2] = player;
+                    break;
+                }
                 break;
             case '4':
-                this.board[1][0] = player; 
+                if(this.board[1][0] == '4'){
+                    this.board[1][0] = player;
+                    break;
+                }
                 break;
             case '5':
-                this.board[1][1] = player;
+                if(this.board[1][1] == '5'){
+                    this.board[1][1] = player;
+                    break;
+                }
                 break;
             case '6':
-                this.board[1][2] = player;
+                if(this.board[1][2] == '6'){
+                    this.board[1][2] = player;
+                    break;
+                }
                 break;
             case '7':
-                this.board[2][0] = player;
+                if(this.board[2][0] == '7'){
+                    this.board[2][0] = player;
+                    break;
+                }
                 break;
             case '8':
-                this.board[2][1] = player;
+                if(this.board[2][1] == '8'){
+                    this.board[2][1] = player;
+                    break;
+                }
                 break;
             case '9':
-                this.board[2][2] = player;
+                if(this.board[2][2] == '9'){
+                    this.board[2][2] = player;
+                    break;
+                }
                 break;
             default:
                 System.out.println("Jogada inválida");
@@ -121,7 +145,71 @@ public class Tabuleiro {
                 }else{
                     test = false;
                     return test;
+                }               
+            case '2':
+                if (this.board[0][1] == player){
+                    test = true;
+                    return test;
+                }else{
+                    test = false;
+                    return test;
                 }
+            case '3':
+                if (this.board[0][2] == player){
+                    test = true;
+                    return test;
+                }else{
+                    test = false;
+                    return test;
+                }
+            case '4':
+                if (this.board[1][0] == player){
+                    test = true;
+                    return test;
+                }else{
+                    test = false;
+                    return test;
+                }
+            case '5':
+                if (this.board[1][1] == player){
+                    test = true;
+                    return test;
+                }else{
+                    test = false;
+                    return test;
+                }
+            case '6':
+                if (this.board[1][2] == player){
+                    test = true;
+                    return test;
+                }else{
+                    test = false;
+                    return test;
+                }
+            case '7':
+                if (this.board[2][0] == player){
+                    test = true;
+                    return test;
+                }else{
+                    test = false;
+                    return test;
+                }
+            case '8':
+                if (this.board[2][1] == player){
+                    test = true;
+                    return test;
+                }else{
+                    test = false;
+                    return test;
+                }
+            case '9':
+                if (this.board[2][2] == player){
+                    test = true;
+                    return test;
+                }else{
+                    test = false;
+                    return test;
+                }                                  
             default:
                 test = false;
                 return test;    
