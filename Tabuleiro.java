@@ -103,33 +103,30 @@ public class Tabuleiro {
                 System.out.println("Player 1 (" + p1 + "): Select the number where you want to play: ");
                 System.out.println();
                 showBoard();
-                System.out.print("Insert: ");
+                System.out.print("P1 Insert: ");
                 char insert = sc2.next().charAt(0);
                 insertMove(insert, p1);
                 boolean test = verification(insert, p1);
-                if(test == true){
-                    continue;
-                }else{
+                if(test == false){
                     System.out.println("invalid move, try again");
                     i--;
                     System.out.println();
                 }
-
+                boolean ganhador = winner(p1);                
             }else{
                 System.out.println("Player 2 (" + p2 + "): Select the number where you want to play: ");
                 System.out.println();
                 showBoard();
-                System.out.print("Insert: ");
+                System.out.print("P2 Insert: ");
                 char insert = sc2.next().charAt(0);
                 insertMove(insert, p2);
                 boolean test = verification(insert, p2);
-                if(test == true){
-                    continue;
-                }else{
+                if(test == false){
                     System.out.println("invalid move, try again");
                     i--;
                     System.out.println();
                 }
+                boolean ganhador = winner(p2);           
             }
         }
         sc2.close();
@@ -213,6 +210,15 @@ public class Tabuleiro {
             default:
                 test = false;
                 return test;    
+        }
+    }
+
+    public boolean winner(char player){
+        if (this.board[0][0] == player && this.board[0][1] == player && this.board[0][2] == player){
+            System.out.println("ganhou");
+            return true;
+        }else{
+            return false;
         }
     }
 
