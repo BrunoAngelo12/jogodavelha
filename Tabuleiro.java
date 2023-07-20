@@ -4,9 +4,14 @@ import javax.sound.sampled.SourceDataLine;
 
 public class Tabuleiro {
     public Character[][] board = new Character[3][3];
+    public char champion;
 
     public Tabuleiro(){}
 
+    public char getChampion(){
+        return champion;
+    }
+    //método para mostrar tabuleiro na tela
     public void showBoard(){
         for(int i = 0; i < 3; i++){
             for(int j = 0; j < 3; j++){
@@ -20,7 +25,7 @@ public class Tabuleiro {
         }
         System.out.println();
     }
-    
+    //método pára começar um tabuleiro em um novo jogo
     public void newBoard(){
         this.board[0][0] = '1';
         this.board[0][1] = '2';
@@ -32,7 +37,7 @@ public class Tabuleiro {
         this.board[2][1] = '8';
         this.board[2][2] = '9';       
     }
-
+    //método para inserir jogada
     public void insertMove(char insert, char player){
         switch (insert){
             case '1':                               
@@ -95,7 +100,7 @@ public class Tabuleiro {
         }
         System.out.println();   
     }
-
+    //aqui onde o jogo roda
     public void runGame(char p1, char p2){
         Scanner sc2 = new Scanner(System.in);
         for(int i = 6; i <= 99; i++){
@@ -112,7 +117,11 @@ public class Tabuleiro {
                     i--;
                     System.out.println();
                 }
-                boolean ganhador = winner(p1);                
+                boolean ganhador = winner(p1);
+                if (ganhador == true){
+                    this.champion = '1';
+                    break;
+                }                
             }else{
                 System.out.println("Player 2 (" + p2 + "): Select the number where you want to play: ");
                 System.out.println();
@@ -126,12 +135,16 @@ public class Tabuleiro {
                     i--;
                     System.out.println();
                 }
-                boolean ganhador = winner(p2);           
+                boolean ganhador = winner(p2);
+                if(ganhador == true){
+                    this.champion = '2';
+                    break;
+                }           
             }
         }
         sc2.close();
     }
-
+    //método para saber se a jogada é inválida
     public boolean verification(char insert, char player){
         boolean test = false;
         switch (insert){
@@ -212,14 +225,31 @@ public class Tabuleiro {
                 return test;    
         }
     }
-
+    //método para descobrir se houve vitória
     public boolean winner(char player){
         if (this.board[0][0] == player && this.board[0][1] == player && this.board[0][2] == player){
-            System.out.println("ganhou");
+            return true;
+        }else if(this.board[1][0] == player && this.board[1][1] == player && this.board[1][2] == player){
+            return true;
+        }else if(this.board[2][0] == player && this.board[2][1] == player && this.board[2][2] == player){
+            return true;
+        }else if(this.board[0][0] == player && this.board[1][1] == player && this.board[2][2] == player){
+            return true;
+        }else if(this.board[0][2] == player && this.board[1][1] == player && this.board[2][0] == player){
+            return true;
+        }else if(this.board[0][0] == player && this.board[1][0] == player && this.board[2][0] == player){
+            return true;
+        }else if(this.board[0][1] == player && this.board[1][1] == player && this.board[2][1] == player){
+            return true;
+        }else if(this.board[0][2] == player && this.board[1][2] == player && this.board[2][2] == player){
             return true;
         }else{
             return false;
         }
+    }
+
+    public String toString(){
+       return "The Champion is player " + champion;
     }
 
 }

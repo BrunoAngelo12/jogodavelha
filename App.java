@@ -31,8 +31,12 @@ public class App {
         System.out.println("Play the game: ");
         System.out.println();
         tab.newBoard();
-        tab.runGame(p1, p2);        
-
+        tab.runGame(p1, p2);
+        System.out.println("---------------------------------------------------");
+        System.out.println();
+        tab.showBoard();
+        System.out.println(tab.toString());
+        System.out.println("See you soon !");      
         sc.close();
     }
 }
