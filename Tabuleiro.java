@@ -121,6 +121,11 @@ public class Tabuleiro {
                 if (ganhador == true){
                     this.champion = '1';
                     break;
+                }
+                boolean old = velha(p2);
+                if(old == true){
+                    this.champion = 'c';
+                    break;
                 }                
             }else{
                 System.out.println("Player 2 (" + p2 + "): Select the number where you want to play: ");
@@ -138,6 +143,11 @@ public class Tabuleiro {
                 boolean ganhador = winner(p2);
                 if(ganhador == true){
                     this.champion = '2';
+                    break;
+                }
+                boolean old = velha(p2);
+                if(old == true){
+                    this.champion = 'v';
                     break;
                 }           
             }
@@ -249,7 +259,21 @@ public class Tabuleiro {
     }
 
     public String toString(){
-       return "The Champion is player " + champion;
+       return "See you soon !";
     }
 
-}
+    public boolean velha(char p){
+        boolean test = winner(p);
+        if (test == true){
+            return false;
+        }else if(this.board[0][0] != '1' && this.board[0][1] != '2' && this.board[0][2] != '3' &&
+            this.board[1][0] != '4' && this.board[1][1] != '5' && this.board[1][2] != '6' &&
+            this.board[2][0] != '7' && this.board[2][1] != '8' && this.board[2][2] != '9'){
+                return true;
+        }else{
+            return false;
+        }        
+    }
+}    
+
+

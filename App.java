@@ -32,11 +32,20 @@ public class App {
         System.out.println();
         tab.newBoard();
         tab.runGame(p1, p2);
-        System.out.println("---------------------------------------------------");
+        System.out.println("----------------------------------------------------------");        
         System.out.println();
         tab.showBoard();
+        System.out.println();
+        char result = tab.getChampion();
+        if (result == '1'){
+            System.out.println("The champion is player 1");
+        }else if(result == '2'){
+            System.out.println("The champion is player 2");
+        }else{
+            System.out.println("Tied, restart the game");
+        }
         System.out.println(tab.toString());
-        System.out.println("See you soon !");      
+        System.out.println();     
         sc.close();
     }
 }
